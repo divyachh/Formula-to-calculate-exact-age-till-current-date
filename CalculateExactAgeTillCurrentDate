@@ -1,0 +1,10 @@
+IF(DATE(YEAR(TODAY()),MONTH(Birthdate),DAY(Birthdate)) > TODAY() ,
+
+IF(DAY(TODAY()) < DAY(Birthdate),TEXT((YEAR(TODAY()) - YEAR(Birthdate)) - 1) & "Years" & TEXT((MONTH(TODAY()) - MONTH(Birthdate)) + 11) & "Months" & TEXT((DAY(TODAY()) + DAY( Next_Bday__c) - DAY(Birthdate))) & " Days",
+
+TEXT((YEAR(TODAY()) - YEAR(Birthdate)) - 1) & "Years" & TEXT((MONTH(TODAY()) - MONTH(Birthdate)) + 12) & "Months" & TEXT((DAY(TODAY()) - DAY(Birthdate))) & " Days"),
+
+IF(DAY(TODAY()) < DAY(Birthdate), TEXT((YEAR(TODAY()) - YEAR(Birthdate))) & "Years" & TEXT((MONTH(TODAY()) - MONTH(Birthdate) - 1)) & "Months" & TEXT((DAY(TODAY()) + DAY( Next_Bday__c) - DAY(Birthdate))) & " Days",
+
+TEXT((YEAR(TODAY()) - YEAR(Birthdate))) & "Years" & TEXT((MONTH(TODAY()) - MONTH(Birthdate))) & "Months" & TEXT((DAY(TODAY()) - DAY(Birthdate))) & " Days"))
+Note : You have to create one field into the system named "Next_Bday__c"
